@@ -1,7 +1,3 @@
-import './style.css'
-import * as THREE from 'three'
-import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls'
-
 const scene = new THREE.Scene()
 const camera = new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,0.1,1000)
 
@@ -115,7 +111,6 @@ changeL.addEventListener('change', (x) => {
   }
 });
 
-const controls = new OrbitControls(camera, renderer.domElement)
 
 function inFrame(obj,now){
   camera.updateMatrix();
@@ -140,7 +135,6 @@ let sx = 0.05
 let sy = 0.01
 function animate(){
   requestAnimationFrame(animate)
-  controls.update()
   bounceOct = inFrame(octahed,bounceOct)
   translate(octahed,0.1,0.2,0,bounceOct)
 
